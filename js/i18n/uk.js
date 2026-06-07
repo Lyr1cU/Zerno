@@ -9,6 +9,8 @@ export default {
   navReviews: "Відгуки",
   navContact: "Контакти",
   ctaBook: "Забронювати столик",
+  navOpenMenu: "Відкрити меню",
+  navCloseMenu: "Закрити меню",
   ctaMenu: "Переглянути меню",
   heroTitle: "Кава, що будить місто",
   heroSubtitle:

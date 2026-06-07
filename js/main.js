@@ -1,12 +1,22 @@
 import { DEFAULT_LANG, STORAGE_KEY, translations } from "./i18n/index.js";
+import { initReveal, refreshReveal } from "./reveal.js";
 
 const langButtons = document.querySelectorAll(".lang-switch__btn");
 const i18nNodes = document.querySelectorAll("[data-i18n]");
 const i18nAltNodes = document.querySelectorAll("[data-i18n-alt]");
 const i18nPlaceholderNodes = document.querySelectorAll("[data-i18n-placeholder]");
 const i18nAriaNodes = document.querySelectorAll("[data-i18n-aria]");
+const burger = document.querySelector(".burger");
+const siteNav = document.getElementById("site-nav");
+const navOverlay = document.getElementById("nav-overlay");
+const navPanelLinks = document.querySelectorAll(".nav__link, .nav__cta");
 
 let currentLang = DEFAULT_LANG;
+
+function getNavAriaLabel(isOpen) {
+  const key = isOpen ? "navCloseMenu" : "navOpenMenu";
+  return translations[currentLang]?.[key] || "";
+}
 
 function setLanguage(lang) {
   const strings = translations[lang];
@@ -63,6 +73,11 @@ function setLanguage(lang) {
   } catch {
     /* ignore */
   }
+
+  if (burger) {
+    const isOpen = burger.classList.contains("is-active");
+    burger.setAttribute("aria-label", getNavAriaLabel(isOpen));
+  }
 }
 
 langButtons.forEach((btn) => {
@@ -77,6 +92,53 @@ try {
 }
 
 setLanguage(translations[savedLang] ? savedLang : DEFAULT_LANG);
+
+/* --------------------------------------------------------------------------
+   Mobile / tablet navigation
+   -------------------------------------------------------------------------- */
+
+function setNavOpen(isOpen) {
+  burger?.classList.toggle("is-active", isOpen);
+  siteNav?.classList.toggle("is-open", isOpen);
+  navOverlay?.classList.toggle("is-visible", isOpen);
+  burger?.setAttribute("aria-expanded", String(isOpen));
+
+  if (burger) {
+    burger.setAttribute("aria-label", getNavAriaLabel(isOpen));
+  }
+
+  document.body.classList.toggle("is-nav-open", isOpen);
+
+  if (navOverlay) {
+    navOverlay.hidden = !isOpen;
+  }
+}
+
+burger?.addEventListener("click", () => {
+  setNavOpen(!burger.classList.contains("is-active"));
+});
+
+navOverlay?.addEventListener("click", () => {
+  setNavOpen(false);
+});
+
+navPanelLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    setNavOpen(false);
+  });
+});
+
+window.matchMedia("(min-width: 1024px)").addEventListener("change", (event) => {
+  if (event.matches) {
+    setNavOpen(false);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && burger?.classList.contains("is-active")) {
+    setNavOpen(false);
+  }
+});
 
 /* --------------------------------------------------------------------------
    Broken image fallback (placeholder gradient shows)
@@ -115,6 +177,10 @@ function filterMenu(category) {
     const isVisible = card.dataset.category === category;
     card.classList.toggle("is-hidden", !isVisible);
     card.hidden = !isVisible;
+
+    if (isVisible) {
+      requestAnimationFrame(() => refreshReveal(card));
+    }
   });
 }
 
@@ -261,3 +327,5 @@ contactForm?.addEventListener("submit", (event) => {
   contactForm.hidden = true;
   formSuccess.hidden = false;
 });
+
+initReveal();

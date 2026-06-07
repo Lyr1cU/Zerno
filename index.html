@@ -9,12 +9,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
   <header class="header">
     <div class="header__inner container">
+      <button
+        class="burger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        data-i18n-aria="navOpenMenu"
+        aria-label="Відкрити меню"
+      >
+        <span class="burger__line" aria-hidden="true"></span>
+        <span class="burger__line" aria-hidden="true"></span>
+        <span class="burger__line" aria-hidden="true"></span>
+      </button>
+
       <a class="logo" href="#hero" aria-label="Zerno — на головну">
-        <img class="logo__icon" src="img/assets/logo.webp" width="40" height="40" alt="">
+        <img class="logo__icon" src="img/assets/logo.webp" width="48" height="48" alt="">
         <span class="logo__text">
           <span class="logo__name" data-i18n="logoName">Зерно</span>
           <span class="logo__divider" aria-hidden="true">|</span>
@@ -22,7 +38,7 @@
         </span>
       </a>
 
-      <nav class="nav" aria-label="Головна навігація">
+      <nav class="nav" id="site-nav" aria-label="Головна навігація">
         <ul class="nav__list">
           <li><a class="nav__link" href="#menu" data-i18n="navMenu">Меню</a></li>
           <li><a class="nav__link" href="#about" data-i18n="navAbout">Про нас</a></li>
@@ -30,6 +46,7 @@
           <li><a class="nav__link" href="#reviews" data-i18n="navReviews">Відгуки</a></li>
           <li><a class="nav__link" href="#contact" data-i18n="navContact">Контакти</a></li>
         </ul>
+        <a class="btn btn--primary nav__cta" href="#contact" data-i18n="ctaBook">Забронювати столик</a>
       </nav>
 
       <div class="header__actions">
@@ -40,6 +57,8 @@
         <a class="btn btn--primary header__cta" href="#contact" data-i18n="ctaBook">Забронювати столик</a>
       </div>
     </div>
+
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
   </header>
 
   <main>

@@ -9,6 +9,8 @@ export default {
   navReviews: "Reviews",
   navContact: "Contact",
   ctaBook: "Book a table",
+  navOpenMenu: "Open menu",
+  navCloseMenu: "Close menu",
   ctaMenu: "View menu",
   heroTitle: "Coffee that wakes the city",
   heroSubtitle:
