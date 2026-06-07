@@ -24,7 +24,7 @@ npx serve .
    git push -u origin main
    ```
 
-3. В репозитории: **Settings → Pages → Build and deployment → Source** выберите **GitHub Actions**.
-4. После первого push workflow опубликует сайт по адресу:
+3. В репозитории: **Settings → Pages → Build and deployment → Source** выберите **GitHub Actions** (если деплой упал с `Get Pages site failed` — это обязательный шаг).
+4. После push workflow опубликует сайт по адресу:
 
-   `https://<ваш-username>.github.io/Zerno/`
+   `https://lyr1c1.github.io/Zerno/`
