@@ -802,33 +802,17 @@ button {
 
 .contact-map {
   position: relative;
-  height: 280px;
+  height: 320px;
   border-radius: var(--radius-card);
   overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(245, 240, 232, 0.9) 1px, transparent 1px),
-    linear-gradient(rgba(245, 240, 232, 0.9) 1px, transparent 1px),
-    #e8dfd4;
-  background-size: 48px 48px;
+  background: #e8dfd4;
 }
 
-.contact-map__pin {
-  position: absolute;
-  top: 42%;
-  left: 54%;
-  width: 28px;
-  height: 28px;
-  border-radius: 50% 50% 50% 0;
-  background: var(--color-brown);
-  transform: rotate(-45deg);
-}
-
-.contact-map__pin::after {
-  content: "";
-  position: absolute;
-  inset: 7px;
-  border-radius: 50%;
-  background: var(--color-cream);
+.contact-map__frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* --------------------------------------------------------------------------

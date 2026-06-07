@@ -235,6 +235,24 @@ collections:
           - label: Підпис карти (EN)
             name: mapLabel_en
             widget: string
+          - label: Широта (mapLat)
+            name: mapLat
+            widget: number
+            value_type: float
+            default: 50.4476
+            hint: "Координати для Google Maps, напр. 50.4476"
+          - label: Довгота (mapLng)
+            name: mapLng
+            widget: number
+            value_type: float
+            default: 30.5242
+            hint: "Координати для Google Maps, напр. 30.5242"
+          - label: Масштаб карти (zoom)
+            name: mapZoom
+            widget: number
+            min: 10
+            max: 20
+            default: 16
           - label: Соцмережі
             name: socials
             widget: list

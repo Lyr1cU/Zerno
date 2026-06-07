@@ -90,21 +90,44 @@ function renderContactList(data, lang) {
   list.appendChild(phoneItem);
 }
 
+function renderMap(data, lang) {
+  const map = document.getElementById("contact-map");
+
+  if (!map) {
+    return;
+  }
+
+  const lat = Number(data.mapLat) || 50.4476;
+  const lng = Number(data.mapLng) || 30.5242;
+  const zoom = Number(data.mapZoom) || 16;
+  const hl = lang === "en" ? "en" : "uk";
+  const label = pickLocalized(data, lang, "mapLabel");
+
+  map.setAttribute("aria-label", label);
+  map.replaceChildren();
+
+  const iframe = document.createElement("iframe");
+  iframe.className = "contact-map__frame";
+  iframe.loading = "lazy";
+  iframe.referrerPolicy = "no-referrer-when-downgrade";
+  iframe.title = label;
+  iframe.setAttribute("allowfullscreen", "");
+  iframe.src = `https://www.google.com/maps?q=${lat},${lng}&hl=${hl}&z=${zoom}&output=embed`;
+
+  map.appendChild(iframe);
+}
+
 export async function renderContacts(lang) {
   const data = await loadContacts();
 
   const title = document.getElementById("contact-title");
-  const map = document.querySelector(".contact-map");
 
   if (!title) {
     return;
   }
 
   title.textContent = pickLocalized(data, lang, "title");
-
-  if (map) {
-    map.setAttribute("aria-label", pickLocalized(data, lang, "mapLabel"));
-  }
+  renderMap(data, lang);
 
   renderContactList(data, lang);
   renderSocials(document.getElementById("contact-socials"), data.socials, 22);
@@ -115,6 +138,7 @@ export async function renderContacts(lang) {
       title,
       ...document.querySelectorAll("#contact-list .contact-list__item"),
       document.getElementById("contact-socials"),
+      document.getElementById("contact-map"),
     ],
     70
   );
