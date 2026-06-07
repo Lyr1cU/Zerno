@@ -1,0 +1,29 @@
+{
+  "title_uk": "Відгуки",
+  "title_en": "Reviews",
+  "subtitle_uk": "Що кажуть гості",
+  "subtitle_en": "What our guests say",
+  "items": [
+    {
+      "author_uk": "Анна К.",
+      "author_en": "Anna K.",
+      "text_uk": "Найкращий капучино в місті! Затишна атмосфера і привітний персонал — сюди хочеться повертатися знову і знову.",
+      "text_en": "The best cappuccino in town! A cozy atmosphere and friendly staff — you'll want to come back again and again.",
+      "stars": 5
+    },
+    {
+      "author_uk": "Михайло Д.",
+      "author_en": "Mykhailo D.",
+      "text_uk": "Чудове місце для роботи з ноутбуком. Смачна кава, тиха музика і неймовірний чізкейк. Рекомендую!",
+      "text_en": "A great place to work on your laptop. Delicious coffee, quiet music, and incredible cheesecake. Highly recommend!",
+      "stars": 5
+    },
+    {
+      "author_uk": "Олена С.",
+      "author_en": "Olena S.",
+      "text_uk": "Завжди свіжа випічка та увага до деталей. Сніданки весь день — це те, чого мені не вистачало в районі.",
+      "text_en": "Always fresh pastries and attention to detail. All-day breakfast — just what the neighborhood was missing.",
+      "stars": 5
+    }
+  ]
+}

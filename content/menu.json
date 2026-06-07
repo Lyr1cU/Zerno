@@ -1,0 +1,100 @@
+{
+  "title_uk": "Меню",
+  "title_en": "Menu",
+  "subtitle_uk": "Напої та випічка зі свіжих інгредієнтів",
+  "subtitle_en": "Drinks and pastries from fresh ingredients",
+  "categories": [
+    {
+      "id": "coffee",
+      "label_uk": "Кава",
+      "label_en": "Coffee"
+    },
+    {
+      "id": "desserts",
+      "label_uk": "Десерти",
+      "label_en": "Desserts"
+    }
+  ],
+  "items": [
+    {
+      "category": "coffee",
+      "name_uk": "Капучино",
+      "name_en": "Cappuccino",
+      "desc_uk": "Класичний капучино з молочною пінкою",
+      "desc_en": "Classic cappuccino with silky foam",
+      "price_uk": "110 грн",
+      "price_en": "110 UAH",
+      "image": "img/menu/Coffe/Kapuchino.jpg"
+    },
+    {
+      "category": "coffee",
+      "name_uk": "Раф ванільний",
+      "name_en": "Vanilla raf",
+      "desc_uk": "Ніжний вершковий раф з ваніллю",
+      "desc_en": "Creamy raf with vanilla notes",
+      "price_uk": "145 грн",
+      "price_en": "145 UAH",
+      "image": "img/menu/Coffe/Raph.jpg"
+    },
+    {
+      "category": "coffee",
+      "name_uk": "Фільтр-кава",
+      "name_en": "Filter coffee",
+      "desc_uk": "Single origin, свіжо змелена",
+      "desc_en": "Single origin, freshly ground",
+      "price_uk": "100 грн",
+      "price_en": "100 UAH",
+      "image": "img/menu/Coffe/Philtr coffe.jpg"
+    },
+    {
+      "category": "coffee",
+      "name_uk": "Еспресо",
+      "name_en": "Espresso",
+      "desc_uk": "Концентрований смак specialty-зерна",
+      "desc_en": "Concentrated specialty flavor",
+      "price_uk": "70 грн",
+      "price_en": "70 UAH",
+      "image": "img/menu/Coffe/Espresso.jpg"
+    },
+    {
+      "category": "desserts",
+      "name_uk": "Круасан",
+      "name_en": "Croissant",
+      "desc_uk": "Вершкова випічка щоденного випікання",
+      "desc_en": "Buttery pastry baked daily",
+      "price_uk": "95 грн",
+      "price_en": "95 UAH",
+      "image": "img/menu/Deserts/Croissant.jpg"
+    },
+    {
+      "category": "desserts",
+      "name_uk": "Чізкейк",
+      "name_en": "Cheesecake",
+      "desc_uk": "Класичний десерт із ягідним соусом",
+      "desc_en": "Classic dessert with berry sauce",
+      "price_uk": "165 грн",
+      "price_en": "165 UAH",
+      "image": "img/menu/Deserts/Cheesecake.jpg"
+    },
+    {
+      "category": "desserts",
+      "name_uk": "Авокадо-тост",
+      "name_en": "Avocado toast",
+      "desc_uk": "Авокадо, яйце пашот, закваасений хліб",
+      "desc_en": "Avocado, poached egg, sourdough",
+      "price_uk": "185 грн",
+      "price_en": "185 UAH",
+      "image": "img/menu/Deserts/Avocado Toast.jpg"
+    },
+    {
+      "category": "desserts",
+      "name_uk": "Гранола",
+      "name_en": "Granola",
+      "desc_uk": "Гранола з ягодами та йогуртом",
+      "desc_en": "Granola with berries and yogurt",
+      "price_uk": "135 грн",
+      "price_en": "135 UAH",
+      "image": "img/menu/Deserts/Granola.jpg"
+    }
+  ]
+}

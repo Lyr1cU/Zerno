@@ -1,0 +1,255 @@
+# Локально: npx decap-server + python -m http.server 8080 → http://localhost:8080/admin/
+# Продакшн: замініть base_url на URL вашого OAuth-проксі (див. README)
+
+local_backend: true
+
+backend:
+  name: github
+  repo: Lyr1cU/Zerno
+  branch: main
+  base_url: https://netlify-cms-oauth-rust.vercel.app
+  auth_endpoint: auth
+
+site_url: https://lyr1c1.github.io/Zerno
+display_url: https://lyr1c1.github.io/Zerno
+# logo_url: після деплою можна вказати https://lyr1c1.github.io/Zerno/img/assets/logo.webp
+
+media_folder: img/uploads
+public_folder: img/uploads
+
+collections:
+  - name: menu
+    label: Меню
+    label_singular: Меню
+    files:
+      - name: menu
+        label: Меню
+        file: content/menu.json
+        fields:
+          - label: Заголовок (UA)
+            name: title_uk
+            widget: string
+          - label: Заголовок (EN)
+            name: title_en
+            widget: string
+          - label: Підзаголовок (UA)
+            name: subtitle_uk
+            widget: string
+          - label: Підзаголовок (EN)
+            name: subtitle_en
+            widget: string
+          - label: Категорії
+            name: categories
+            widget: list
+            summary: "{{fields.label_uk}}"
+            fields:
+              - label: ID (латиниця, напр. coffee)
+                name: id
+                widget: string
+                pattern:
+                  - "^[a-z0-9-]+$"
+                  - "Латинські літери, цифри та дефіс"
+              - label: Назва (UA)
+                name: label_uk
+                widget: string
+              - label: Назва (EN)
+                name: label_en
+                widget: string
+          - label: Позиції меню
+            name: items
+            widget: list
+            summary: "{{fields.name_uk}}"
+            fields:
+              - label: Категорія (ID зі списку вище)
+                name: category
+                widget: string
+              - label: Назва (UA)
+                name: name_uk
+                widget: string
+              - label: Назва (EN)
+                name: name_en
+                widget: string
+              - label: Опис (UA)
+                name: desc_uk
+                widget: text
+              - label: Опис (EN)
+                name: desc_en
+                widget: text
+              - label: Ціна (UA)
+                name: price_uk
+                widget: string
+              - label: Ціна (EN)
+                name: price_en
+                widget: string
+              - label: Фото
+                name: image
+                widget: image
+                media_library:
+                  config:
+                    multiple: false
+
+  - name: gallery
+    label: Галерея
+    label_singular: Галерея
+    files:
+      - name: gallery
+        label: Галерея
+        file: content/gallery.json
+        fields:
+          - label: Заголовок (UA)
+            name: title_uk
+            widget: string
+          - label: Заголовок (EN)
+            name: title_en
+            widget: string
+          - label: Підзаголовок (UA)
+            name: subtitle_uk
+            widget: string
+          - label: Підзаголовок (EN)
+            name: subtitle_en
+            widget: string
+          - label: Фото
+            name: items
+            widget: list
+            summary: "{{fields.alt_uk}}"
+            fields:
+              - label: Зображення
+                name: image
+                widget: image
+              - label: Alt (UA)
+                name: alt_uk
+                widget: string
+              - label: Alt (EN)
+                name: alt_en
+                widget: string
+              - label: Розмір у сітці
+                name: layout
+                widget: select
+                default: normal
+                options:
+                  - { label: "Звичайне", value: normal }
+                  - { label: "Високе", value: tall }
+                  - { label: "Широке", value: wide }
+
+  - name: reviews
+    label: Відгуки
+    label_singular: Відгуки
+    files:
+      - name: reviews
+        label: Відгуки
+        file: content/reviews.json
+        fields:
+          - label: Заголовок (UA)
+            name: title_uk
+            widget: string
+          - label: Заголовок (EN)
+            name: title_en
+            widget: string
+          - label: Підзаголовок (UA)
+            name: subtitle_uk
+            widget: string
+          - label: Підзаголовок (EN)
+            name: subtitle_en
+            widget: string
+          - label: Відгуки
+            name: items
+            widget: list
+            summary: "{{fields.author_uk}}"
+            fields:
+              - label: Автор (UA)
+                name: author_uk
+                widget: string
+              - label: Автор (EN)
+                name: author_en
+                widget: string
+              - label: Текст (UA)
+                name: text_uk
+                widget: text
+              - label: Текст (EN)
+                name: text_en
+                widget: text
+              - label: Зірки (1–5)
+                name: stars
+                widget: number
+                min: 1
+                max: 5
+                default: 5
+
+  - name: contacts
+    label: Контакти
+    label_singular: Контакти
+    files:
+      - name: contacts
+        label: Контакти
+        file: content/contacts.json
+        fields:
+          - label: Заголовок (UA)
+            name: title_uk
+            widget: string
+          - label: Заголовок (EN)
+            name: title_en
+            widget: string
+          - label: Підпис «Адреса» (UA)
+            name: addressLabel_uk
+            widget: string
+          - label: Підпис «Адреса» (EN)
+            name: addressLabel_en
+            widget: string
+          - label: Адреса (UA)
+            name: address_uk
+            widget: string
+          - label: Адреса (EN)
+            name: address_en
+            widget: string
+          - label: Підпис «Години» (UA)
+            name: hoursLabel_uk
+            widget: string
+          - label: Підпис «Години» (EN)
+            name: hoursLabel_en
+            widget: string
+          - label: Години роботи (UA)
+            name: hours_uk
+            widget: string
+          - label: Години роботи (EN)
+            name: hours_en
+            widget: string
+          - label: Підпис «Телефон» (UA)
+            name: phoneLabel_uk
+            widget: string
+          - label: Підпис «Телефон» (EN)
+            name: phoneLabel_en
+            widget: string
+          - label: Телефон (відображення, UA)
+            name: phoneDisplay_uk
+            widget: string
+          - label: Телефон (відображення, EN)
+            name: phoneDisplay_en
+            widget: string
+          - label: Телефон (для посилання tel:)
+            name: phone
+            widget: string
+            hint: "Тільки цифри та +, напр. +380441234567"
+          - label: Підпис карти (UA)
+            name: mapLabel_uk
+            widget: string
+          - label: Підпис карти (EN)
+            name: mapLabel_en
+            widget: string
+          - label: Соцмережі
+            name: socials
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - label: Мережа
+                name: id
+                widget: select
+                options:
+                  - { label: Telegram, value: telegram }
+                  - { label: Instagram, value: instagram }
+                  - { label: Facebook, value: facebook }
+              - label: Посилання
+                name: url
+                widget: string
+              - label: Назва (для доступності)
+                name: label
+                widget: string

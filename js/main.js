@@ -1,5 +1,9 @@
 import { DEFAULT_LANG, STORAGE_KEY, translations } from "./i18n/index.js";
-import { initReveal, refreshReveal } from "./reveal.js";
+import { initReveal } from "./reveal.js";
+import { initGalleryLightbox, renderGallery } from "./render/gallery.js";
+import { initMenuTabs, renderMenu } from "./render/menu.js";
+import { renderContacts } from "./render/contacts.js";
+import { initReviewsSlider, renderReviews } from "./render/reviews.js";
 
 const langButtons = document.querySelectorAll(".lang-switch__btn");
 const i18nNodes = document.querySelectorAll("[data-i18n]");
@@ -81,7 +85,15 @@ function setLanguage(lang) {
 }
 
 langButtons.forEach((btn) => {
-  btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+  btn.addEventListener("click", async () => {
+    setLanguage(btn.dataset.lang);
+    await Promise.all([
+      renderMenu(btn.dataset.lang),
+      renderGallery(btn.dataset.lang),
+      renderReviews(btn.dataset.lang),
+      renderContacts(btn.dataset.lang),
+    ]);
+  });
 });
 
 let savedLang = DEFAULT_LANG;
@@ -91,7 +103,8 @@ try {
   /* ignore */
 }
 
-setLanguage(translations[savedLang] ? savedLang : DEFAULT_LANG);
+const initialLang = translations[savedLang] ? savedLang : DEFAULT_LANG;
+setLanguage(initialLang);
 
 /* --------------------------------------------------------------------------
    Mobile / tablet navigation
@@ -144,86 +157,6 @@ document.addEventListener("keydown", (event) => {
    Broken image fallback (placeholder gradient shows)
    -------------------------------------------------------------------------- */
 
-document.querySelectorAll(".menu-card__media img, .gallery-item img").forEach((img) => {
-  img.addEventListener("error", () => {
-    img.classList.add("is-broken");
-  });
-  if (img.complete && img.naturalWidth === 0) {
-    img.classList.add("is-broken");
-  }
-});
-
-/* --------------------------------------------------------------------------
-   Menu tabs
-   -------------------------------------------------------------------------- */
-
-const menuTabButtons = document.querySelectorAll(".menu-tabs__btn");
-const menuCards = document.querySelectorAll(".menu-card");
-const menuPanel = document.getElementById("menu-panel");
-
-function filterMenu(category) {
-  menuTabButtons.forEach((btn) => {
-    const isActive = btn.dataset.tab === category;
-    btn.classList.toggle("is-active", isActive);
-    btn.setAttribute("aria-selected", String(isActive));
-  });
-
-  const activeTab = document.getElementById(`menu-tab-${category}`);
-  if (menuPanel && activeTab) {
-    menuPanel.setAttribute("aria-labelledby", activeTab.id);
-  }
-
-  menuCards.forEach((card) => {
-    const isVisible = card.dataset.category === category;
-    card.classList.toggle("is-hidden", !isVisible);
-    card.hidden = !isVisible;
-
-    if (isVisible) {
-      requestAnimationFrame(() => refreshReveal(card));
-    }
-  });
-}
-
-menuTabButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    filterMenu(btn.dataset.tab);
-  });
-});
-
-if (menuTabButtons.length && menuCards.length) {
-  filterMenu("coffee");
-}
-
-/* --------------------------------------------------------------------------
-   Reviews slider (desktop: all visible; arrows/dots for future mobile)
-   -------------------------------------------------------------------------- */
-
-const reviewCards = document.querySelectorAll(".review-card");
-const reviewDots = document.querySelectorAll(".reviews-dots__btn");
-const reviewPrev = document.querySelector(".reviews-slider__arrow--prev");
-const reviewNext = document.querySelector(".reviews-slider__arrow--next");
-let reviewIndex = 0;
-
-function showReview(index) {
-  reviewIndex = (index + reviewCards.length) % reviewCards.length;
-
-  reviewCards.forEach((card, i) => {
-    card.classList.toggle("is-active", i === reviewIndex);
-  });
-
-  reviewDots.forEach((dot, i) => {
-    dot.classList.toggle("is-active", i === reviewIndex);
-    dot.setAttribute("aria-selected", String(i === reviewIndex));
-  });
-}
-
-reviewPrev?.addEventListener("click", () => showReview(reviewIndex - 1));
-reviewNext?.addEventListener("click", () => showReview(reviewIndex + 1));
-
-reviewDots.forEach((dot) => {
-  dot.addEventListener("click", () => showReview(Number(dot.dataset.slide)));
-});
-
 /* --------------------------------------------------------------------------
    Gallery lightbox
    -------------------------------------------------------------------------- */
@@ -231,20 +164,6 @@ reviewDots.forEach((dot) => {
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = lightbox?.querySelector(".lightbox__image");
 const lightboxClose = lightbox?.querySelector(".lightbox__close");
-
-document.querySelectorAll(".gallery-item").forEach((item) => {
-  item.addEventListener("click", () => {
-    const img = item.querySelector("img");
-    if (!lightbox || !lightboxImage || !img || img.classList.contains("is-broken")) {
-      return;
-    }
-
-    lightboxImage.src = item.dataset.full || img.src;
-    lightboxImage.alt = img.alt;
-    lightbox.hidden = false;
-    document.body.style.overflow = "hidden";
-  });
-});
 
 function closeLightbox() {
   if (!lightbox) return;
@@ -328,4 +247,50 @@ contactForm?.addEventListener("submit", (event) => {
   formSuccess.hidden = false;
 });
 
-initReveal();
+function showContentError(containerId, message) {
+  const container = document.getElementById(containerId);
+
+  if (container) {
+    container.innerHTML = `<p class="content-error">${message}</p>`;
+  }
+}
+
+async function bootstrap() {
+  initMenuTabs();
+  initGalleryLightbox();
+  initReviewsSlider();
+  initReveal();
+
+  const contentError =
+    "Не вдалося завантажити дані. Запустіть сайт через локальний сервер (не file://).";
+
+  try {
+    await renderMenu(currentLang);
+  } catch (error) {
+    console.error("Failed to render menu:", error);
+    showContentError("menu-panel", contentError);
+  }
+
+  try {
+    await renderGallery(currentLang);
+  } catch (error) {
+    console.error("Failed to render gallery:", error);
+    showContentError("gallery-grid", contentError);
+  }
+
+  try {
+    await renderReviews(currentLang);
+  } catch (error) {
+    console.error("Failed to render reviews:", error);
+    showContentError("reviews-track", contentError);
+  }
+
+  try {
+    await renderContacts(currentLang);
+  } catch (error) {
+    console.error("Failed to render contacts:", error);
+    showContentError("contact-list", contentError);
+  }
+}
+
+bootstrap();

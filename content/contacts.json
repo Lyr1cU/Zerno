@@ -1,0 +1,36 @@
+{
+  "title_uk": "Контакти",
+  "title_en": "Contact",
+  "addressLabel_uk": "Адреса",
+  "addressLabel_en": "Address",
+  "address_uk": "вул. Хрещатик, 12, Київ",
+  "address_en": "12 Khreshchatyk St, Kyiv",
+  "hoursLabel_uk": "Години роботи",
+  "hoursLabel_en": "Opening hours",
+  "hours_uk": "Пн–Пт 8:00–22:00, Сб–Нд 9:00–23:00",
+  "hours_en": "Mon–Fri 8:00–22:00, Sat–Sun 9:00–23:00",
+  "phoneLabel_uk": "Телефон",
+  "phoneLabel_en": "Phone",
+  "phoneDisplay_uk": "+380 (44) 123-45-67",
+  "phoneDisplay_en": "+380 (44) 123-45-67",
+  "phone": "+380441234567",
+  "mapLabel_uk": "Карта розташування",
+  "mapLabel_en": "Location map",
+  "socials": [
+    {
+      "id": "telegram",
+      "url": "https://t.me/",
+      "label": "Telegram"
+    },
+    {
+      "id": "instagram",
+      "url": "https://instagram.com/",
+      "label": "Instagram"
+    },
+    {
+      "id": "facebook",
+      "url": "https://facebook.com/",
+      "label": "Facebook"
+    }
+  ]
+}

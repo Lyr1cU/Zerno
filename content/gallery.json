@@ -1,0 +1,56 @@
+{
+  "title_uk": "Галерея",
+  "title_en": "Gallery",
+  "subtitle_uk": "Інтер'єр, напої та моменти, які хочеться зберегти",
+  "subtitle_en": "Interior, drinks, and moments worth remembering",
+  "items": [
+    {
+      "image": "img/gallery/01.webp",
+      "alt_uk": "Латте-арт у керамічній чашці",
+      "alt_en": "Latte art in a ceramic cup",
+      "layout": "tall"
+    },
+    {
+      "image": "img/gallery/02.webp",
+      "alt_uk": "Еспресо наливають у чашку",
+      "alt_en": "Espresso being poured into a cup",
+      "layout": "normal"
+    },
+    {
+      "image": "img/gallery/03.webp",
+      "alt_uk": "Вітрина з випічкою",
+      "alt_en": "Pastry display case",
+      "layout": "normal"
+    },
+    {
+      "image": "img/gallery/04.webp",
+      "alt_uk": "Кавова ростерія",
+      "alt_en": "Coffee roastery",
+      "layout": "normal"
+    },
+    {
+      "image": "img/gallery/05.webp",
+      "alt_uk": "Затишний куточок з кріслами",
+      "alt_en": "Cozy corner with armchairs",
+      "layout": "tall"
+    },
+    {
+      "image": "img/gallery/06.webp",
+      "alt_uk": "Кава та книга на дерев'яному столі",
+      "alt_en": "Coffee and a book on a wooden table",
+      "layout": "normal"
+    },
+    {
+      "image": "img/gallery/07.webp",
+      "alt_uk": "Руки тримають чашку кави",
+      "alt_en": "Hands holding a cup of coffee",
+      "layout": "wide"
+    },
+    {
+      "image": "img/gallery/08.webp",
+      "alt_uk": "Інтер'єр кав'ярні з рослинами",
+      "alt_en": "Café interior with plants",
+      "layout": "normal"
+    }
+  ]
+}

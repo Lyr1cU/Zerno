@@ -508,6 +508,16 @@ button {
   white-space: nowrap;
 }
 
+.menu-error,
+.content-error {
+  margin: 0;
+  padding: 1.25rem;
+  text-align: center;
+  color: rgba(45, 27, 20, 0.7);
+  background: rgba(198, 123, 78, 0.1);
+  border-radius: var(--radius-card);
+}
+
 /* --------------------------------------------------------------------------
    Gallery
    -------------------------------------------------------------------------- */

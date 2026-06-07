@@ -148,194 +148,42 @@
 
     <section class="menu section section--white" id="menu">
       <div class="container menu__inner">
-        <h2 class="section-title section-title--left" data-i18n="menuTitle">Меню</h2>
-        <p class="section-subtitle section-subtitle--left" data-i18n="menuSubtitle">Напої та випічка зі свіжих інгредієнтів</p>
+        <h2 class="section-title section-title--left" id="menu-title"></h2>
+        <p class="section-subtitle section-subtitle--left" id="menu-subtitle"></p>
 
-        <div class="menu-tabs" role="tablist" aria-label="Категорії меню">
-          <button class="menu-tabs__btn is-active" type="button" role="tab" id="menu-tab-coffee" aria-selected="true" aria-controls="menu-panel" data-tab="coffee" data-i18n="menuTabCoffee">Кава</button>
-          <button class="menu-tabs__btn" type="button" role="tab" id="menu-tab-desserts" aria-selected="false" aria-controls="menu-panel" data-tab="desserts" data-i18n="menuTabDesserts">Десерти</button>
-        </div>
+        <div class="menu-tabs" id="menu-tabs" role="tablist" aria-label="Категорії меню"></div>
 
-        <div class="menu-grid" id="menu-panel" role="tabpanel" aria-labelledby="menu-tab-coffee">
-          <article class="menu-card" data-category="coffee">
-            <div class="menu-card__media">
-              <img src="img/menu/Coffe/Kapuchino.jpg" alt="" width="280" height="280" loading="lazy">
-            </div>
-            <div class="menu-card__body">
-              <div class="menu-card__info">
-                <h3 class="menu-card__name" data-i18n="menuCappuccinoName">Капучино</h3>
-                <p class="menu-card__desc" data-i18n="menuCappuccinoDesc">Класичний капучино з молочною пінкою</p>
-              </div>
-              <span class="menu-card__price" data-i18n="menuCappuccinoPrice">110 грн</span>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="coffee">
-            <div class="menu-card__media">
-              <img src="img/menu/Coffe/Raph.jpg" alt="" width="280" height="280" loading="lazy">
-            </div>
-            <div class="menu-card__body">
-              <div class="menu-card__info">
-                <h3 class="menu-card__name" data-i18n="menuRafName">Раф ванільний</h3>
-                <p class="menu-card__desc" data-i18n="menuRafDesc">Ніжний вершковий раф з ваніллю</p>
-              </div>
-              <span class="menu-card__price" data-i18n="menuRafPrice">145 грн</span>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="coffee">
-            <div class="menu-card__media">
-              <img src="img/menu/Coffe/Philtr%20coffe.jpg" alt="" width="280" height="280" loading="lazy">
-            </div>
-            <div class="menu-card__body">
-              <div class="menu-card__info">
-                <h3 class="menu-card__name" data-i18n="menuFilterName">Фільтр-кава</h3>
-                <p class="menu-card__desc" data-i18n="menuFilterDesc">Single origin, свіжо змелена</p>
-              </div>
-              <span class="menu-card__price" data-i18n="menuFilterPrice">100 грн</span>
-            </div>
-          </article>
-
-          <article class="menu-card" data-category="coffee">
-            <div class="menu-card__media">
-              <img src="img/menu/Coffe/Espresso.jpg" alt="" width="280" height="280" loading="lazy">
-            </div>
-            <div class="menu-card__body">
-              <div class="menu-card__info">
-                <h3 class="menu-card__name" data-i18n="menuEspressoName">Еспресо</h3>
-                <p class="menu-card__desc" data-i18n="menuEspressoDesc">Концентрований смак specialty-зерна</p>
-              </div>
-              <span class="menu-card__price" data-i18n="menuEspressoPrice">70 грн</span>
-            </div>
-          </article>
-
-          <article class="menu-card is-hidden" data-category="desserts" hidden>
-            <div class="menu-card__media">
-              <img src="img/menu/Deserts/Croissant.jpg" alt="" width="280" height="280" loading="lazy">
-            </div>
-            <div class="menu-card__body">
-              <div class="menu-card__info">
-                <h3 class="menu-card__name" data-i18n="menuCroissantName">Круасан</h3>
-                <p class="menu-card__desc" data-i18n="menuCroissantDesc">Вершкова випічка щоденного випікання</p>
-              </div>
-              <span class="menu-card__price" data-i18n="menuCroissantPrice">95 грн</span>
-            </div>
-          </article>
-
-          <article class="menu-card is-hidden" data-category="desserts" hidden>
-            <div class="menu-card__media">
-              <img src="img/menu/Deserts/Cheesecake.jpg" alt="" width="280" height="280" loading="lazy">
-            </div>
-            <div class="menu-card__body">
-              <div class="menu-card__info">
-                <h3 class="menu-card__name" data-i18n="menuCheesecakeName">Чізкейк</h3>
-                <p class="menu-card__desc" data-i18n="menuCheesecakeDesc">Класичний десерт із ягідним соусом</p>
-              </div>
-              <span class="menu-card__price" data-i18n="menuCheesecakePrice">165 грн</span>
-            </div>
-          </article>
-
-          <article class="menu-card is-hidden" data-category="desserts" hidden>
-            <div class="menu-card__media">
-              <img src="img/menu/Deserts/Avocado%20Toast.jpg" alt="" width="280" height="280" loading="lazy">
-            </div>
-            <div class="menu-card__body">
-              <div class="menu-card__info">
-                <h3 class="menu-card__name" data-i18n="menuToastName">Авокадо-тост</h3>
-                <p class="menu-card__desc" data-i18n="menuToastDesc">Авокадо, яйце пашот, закваасений хліб</p>
-              </div>
-              <span class="menu-card__price" data-i18n="menuToastPrice">185 грн</span>
-            </div>
-          </article>
-
-          <article class="menu-card is-hidden" data-category="desserts" hidden>
-            <div class="menu-card__media">
-              <img src="img/menu/Deserts/Granola.jpg" alt="" width="280" height="280" loading="lazy">
-            </div>
-            <div class="menu-card__body">
-              <div class="menu-card__info">
-                <h3 class="menu-card__name" data-i18n="menuGranolaName">Гранола</h3>
-                <p class="menu-card__desc" data-i18n="menuGranolaDesc">Гранола з ягодами та йогуртом</p>
-              </div>
-              <span class="menu-card__price" data-i18n="menuGranolaPrice">135 грн</span>
-            </div>
-          </article>
-        </div>
+        <div class="menu-grid" id="menu-panel" role="tabpanel"></div>
       </div>
     </section>
 
     <section class="gallery section" id="gallery">
       <div class="container gallery__inner">
-        <h2 class="section-title" data-i18n="galleryTitle">Галерея</h2>
-        <p class="section-subtitle" data-i18n="gallerySubtitle">Інтер'єр, напої та моменти, які хочеться зберегти</p>
+        <h2 class="section-title" id="gallery-title"></h2>
+        <p class="section-subtitle" id="gallery-subtitle"></p>
 
-        <div class="gallery-grid">
-          <button class="gallery-item gallery-item--tall" type="button" data-full="img/gallery/01.webp">
-            <img src="img/gallery/01.webp" alt="" width="400" height="500" loading="lazy" data-i18n-alt="galleryAlt1">
-          </button>
-          <button class="gallery-item" type="button" data-full="img/gallery/02.webp">
-            <img src="img/gallery/02.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt2">
-          </button>
-          <button class="gallery-item" type="button" data-full="img/gallery/03.webp">
-            <img src="img/gallery/03.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt3">
-          </button>
-          <button class="gallery-item" type="button" data-full="img/gallery/04.webp">
-            <img src="img/gallery/04.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt4">
-          </button>
-          <button class="gallery-item gallery-item--tall" type="button" data-full="img/gallery/05.webp">
-            <img src="img/gallery/05.webp" alt="" width="400" height="500" loading="lazy" data-i18n-alt="galleryAlt5">
-          </button>
-          <button class="gallery-item" type="button" data-full="img/gallery/06.webp">
-            <img src="img/gallery/06.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt6">
-          </button>
-          <button class="gallery-item gallery-item--wide" type="button" data-full="img/gallery/07.webp">
-            <img src="img/gallery/07.webp" alt="" width="800" height="400" loading="lazy" data-i18n-alt="galleryAlt7">
-          </button>
-          <button class="gallery-item" type="button" data-full="img/gallery/08.webp">
-            <img src="img/gallery/08.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt8">
-          </button>
-        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
       </div>
     </section>
 
     <section class="reviews section section--white" id="reviews">
       <div class="container reviews__inner">
-        <h2 class="section-title" data-i18n="reviewsTitle">Відгуки</h2>
-        <p class="section-subtitle" data-i18n="reviewsSubtitle">Що кажуть гості</p>
+        <h2 class="section-title" id="reviews-title"></h2>
+        <p class="section-subtitle" id="reviews-subtitle"></p>
 
         <div class="reviews-slider">
           <button class="reviews-slider__arrow reviews-slider__arrow--prev" type="button" aria-label="Попередній відгук" data-i18n-aria="reviewsPrev">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
 
-          <div class="reviews-slider__track">
-            <article class="review-card is-active">
-              <div class="review-card__stars" aria-label="5 з 5">★★★★★</div>
-              <blockquote class="review-card__text" data-i18n="review1Text">Найкращий капучино в місті! Затишна атмосфера і привітний персонал — сюди хочеться повертатися знову і знову.</blockquote>
-              <cite class="review-card__author" data-i18n="review1Author">Анна К.</cite>
-            </article>
-            <article class="review-card">
-              <div class="review-card__stars" aria-label="5 з 5">★★★★★</div>
-              <blockquote class="review-card__text" data-i18n="review2Text">Чудове місце для роботи з ноутбуком. Смачна кава, тиха музика і неймовірний чізкейк. Рекомендую!</blockquote>
-              <cite class="review-card__author" data-i18n="review2Author">Михайло Д.</cite>
-            </article>
-            <article class="review-card">
-              <div class="review-card__stars" aria-label="5 з 5">★★★★★</div>
-              <blockquote class="review-card__text" data-i18n="review3Text">Завжди свіжа випічка та увага до деталей. Сніданки весь день — це те, чого мені не вистачало в районі.</blockquote>
-              <cite class="review-card__author" data-i18n="review3Author">Олена С.</cite>
-            </article>
-          </div>
+          <div class="reviews-slider__track" id="reviews-track"></div>
 
           <button class="reviews-slider__arrow reviews-slider__arrow--next" type="button" aria-label="Наступний відгук" data-i18n-aria="reviewsNext">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
           </button>
         </div>
 
-        <div class="reviews-dots" role="tablist" aria-label="Відгуки">
-          <button class="reviews-dots__btn is-active" type="button" aria-selected="true" data-slide="0"></button>
-          <button class="reviews-dots__btn" type="button" aria-selected="false" data-slide="1"></button>
-          <button class="reviews-dots__btn" type="button" aria-selected="false" data-slide="2"></button>
-        </div>
+        <div class="reviews-dots" id="reviews-dots" role="tablist" aria-label="Відгуки"></div>
       </div>
     </section>
 
@@ -343,39 +191,11 @@
       <div class="container contact__inner">
         <div class="contact__grid">
           <div class="contact__info">
-            <h2 class="section-title section-title--left" data-i18n="contactTitle">Контакти</h2>
+            <h2 class="section-title section-title--left" id="contact-title"></h2>
 
-            <dl class="contact-list">
-              <div class="contact-list__item">
-                <dt data-i18n="contactAddressLabel">Адреса</dt>
-                <dd>
-                  <svg class="contact-list__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-                  <span data-i18n="contactAddress">вул. Хрещатик, 12, Київ</span>
-                </dd>
-              </div>
-              <div class="contact-list__item">
-                <dt data-i18n="contactHoursLabel">Години роботи</dt>
-                <dd data-i18n="contactHours">Пн–Пт 8:00–22:00, Сб–Нд 9:00–23:00</dd>
-              </div>
-              <div class="contact-list__item">
-                <dt data-i18n="contactPhoneLabel">Телефон</dt>
-                <dd>
-                  <a href="tel:+380441234567" data-i18n="contactPhone">+380 (44) 123-45-67</a>
-                </dd>
-              </div>
-            </dl>
+            <dl class="contact-list" id="contact-list"></dl>
 
-            <div class="socials">
-              <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M22 3L2 11l7 2 2 7 11-17z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-              </a>
-              <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg>
-              </a>
-              <a class="socials__link" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v8h4v-8h3l1-4h-4V9c0-.6.4-1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
+            <div class="socials" id="contact-socials"></div>
           </div>
 
           <div class="contact__form-wrap">
@@ -410,7 +230,7 @@
           </div>
         </div>
 
-        <div class="contact-map" aria-label="Карта розташування">
+        <div class="contact-map">
           <div class="contact-map__pin" aria-hidden="true"></div>
         </div>
       </div>
@@ -435,17 +255,7 @@
       </nav>
 
       <div class="footer__actions">
-        <div class="socials socials--footer">
-          <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M22 3L2 11l7 2 2 7 11-17z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-          </a>
-          <a class="socials__link" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v8h4v-8h3l1-4h-4V9c0-.6.4-1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
+        <div class="socials socials--footer" id="footer-socials"></div>
         <a class="footer__top" href="#hero" data-i18n="footerTop">Нагору ↑</a>
       </div>
     </div>

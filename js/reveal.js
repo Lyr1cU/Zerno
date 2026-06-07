@@ -48,6 +48,10 @@ function addSingles(selectors, skipInside = "") {
 
   selectors.forEach((selector) => {
     document.querySelectorAll(selector).forEach((el) => {
+      if (el.closest("#menu, #gallery, #reviews, #contact")) {
+        return;
+      }
+
       if (skipInside && el.parentElement?.closest(skipInside)) {
         return;
       }
@@ -73,6 +77,38 @@ function onReveal(entries, observer) {
 function isInViewport(el) {
   const rect = el.getBoundingClientRect();
   return rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+}
+
+function ensureRevealObserver() {
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(onReveal, OBSERVER_OPTIONS);
+  }
+}
+
+export function observeRevealElements(elements, stagger = 70) {
+  const targets = elements.filter(Boolean);
+
+  if (targets.length === 0) {
+    return;
+  }
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    targets.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  ensureRevealObserver();
+
+  targets.forEach((el, index) => {
+    el.classList.remove("is-visible");
+    markReveal(el, index * stagger);
+    revealObserver.observe(el);
+
+    if (isInViewport(el)) {
+      el.classList.add("is-visible");
+      revealObserver.unobserve(el);
+    }
+  });
 }
 
 export function refreshReveal(el) {
@@ -105,8 +141,6 @@ export function initReveal() {
 
   const staggered = [
     ...addStaggered(".features", ".feature-card", 90),
-    ...addStaggered(".menu-grid", ".menu-card", 70),
-    ...addStaggered(".gallery-grid", ".gallery-item", 55),
     ...addStaggered(".contact__grid", ":scope > *", 110),
     ...addStaggered(".footer__inner", ":scope > *", 90),
   ];
@@ -124,9 +158,6 @@ export function initReveal() {
       ".section-title",
       ".section-subtitle",
       ".about__text",
-      ".menu-tabs",
-      ".reviews-slider",
-      ".reviews-dots",
       ".contact-map",
     ],
     ".contact__info, .contact__form-wrap"
@@ -139,6 +170,6 @@ export function initReveal() {
     }
   });
 
-  revealObserver = new IntersectionObserver(onReveal, OBSERVER_OPTIONS);
+  ensureRevealObserver();
   observeList.forEach((el) => revealObserver.observe(el));
 }
