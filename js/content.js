@@ -1,13 +1,14 @@
 const cache = new Map();
 
 function getSiteRoot() {
-  const script = document.querySelector('script[type="module"][src]');
+  const { origin, pathname } = window.location;
+  const segments = pathname.split("/").filter(Boolean);
 
-  if (script?.src) {
-    return new URL("../", script.src);
+  if (segments.length === 0) {
+    return `${origin}/`;
   }
 
-  return new URL("./", window.location.href);
+  return `${origin}/${segments[0]}/`;
 }
 
 export async function loadJson(path) {

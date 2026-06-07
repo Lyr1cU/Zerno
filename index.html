@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+  <script>
+    (function () {
+      var path = location.pathname;
+      var last = path.split("/").pop() || "";
+
+      if (path.length > 1 && !path.endsWith("/") && last.indexOf(".") === -1) {
+        location.replace(path + "/" + location.search + location.hash);
+      }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zerno — крафтова кав'ярня</title>
