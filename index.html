@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zerno — крафтова кав'ярня</title>
+  <meta name="description" content="Zerno — specialty-кава, власне обсмаження та затишна атмосфера в центрі міста.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner container">
+      <a class="logo" href="#hero" aria-label="Zerno — на головну">
+        <img class="logo__icon" src="img/assets/logo.webp" width="40" height="40" alt="">
+        <span class="logo__text">
+          <span class="logo__name" data-i18n="logoName">Зерно</span>
+          <span class="logo__divider" aria-hidden="true">|</span>
+          <span class="logo__name-en">ZERNO</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Головна навігація">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#menu" data-i18n="navMenu">Меню</a></li>
+          <li><a class="nav__link" href="#about" data-i18n="navAbout">Про нас</a></li>
+          <li><a class="nav__link" href="#gallery" data-i18n="navGallery">Галерея</a></li>
+          <li><a class="nav__link" href="#reviews" data-i18n="navReviews">Відгуки</a></li>
+          <li><a class="nav__link" href="#contact" data-i18n="navContact">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <div class="lang-switch" role="group" aria-label="Мова сайту">
+          <button class="lang-switch__btn is-active" type="button" data-lang="uk" aria-pressed="true">UA</button>
+          <button class="lang-switch__btn" type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="btn btn--primary header__cta" href="#contact" data-i18n="ctaBook">Забронювати столик</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__media" aria-hidden="true">
+        <img
+          class="hero__image"
+          src="img/assets/hero.webp"
+          width="2400"
+          height="1350"
+          alt="Інтер'єр кав'ярні Zerno з цегляною стіною та теплим освітленням"
+          fetchpriority="high"
+        >
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="hero__content container">
+        <h1 class="hero__title" data-i18n="heroTitle">Кава, що будить місто</h1>
+        <p class="hero__subtitle" data-i18n="heroSubtitle">
+          Власне обсмаження, specialty-зерна та сніданки весь день у центрі міста
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#contact" data-i18n="ctaBook">Забронювати столик</a>
+          <a class="btn btn--outline btn--lg" href="#menu" data-i18n="ctaMenu">Переглянути меню</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container about__inner">
+        <p class="section-label" data-i18n="aboutLabel">Про нас</p>
+        <h2 class="section-title" data-i18n="aboutTitle">Місце, де зерна стають історією</h2>
+        <p class="about__text" data-i18n="aboutText">
+          Пориньте в атмосферу, де кожна чашка — результат ретельного відбору найкращих specialty-зерен, обсмажених з любов'ю у нашій власній ростерії. Ми створюємо простір для натхнення та відпочинку.
+        </p>
+
+        <ul class="features">
+          <li class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="14" width="28" height="22" rx="3" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 14V10a8 8 0 0 1 16 0v4" stroke="currentColor" stroke-width="2"/>
+                <path d="M18 28h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title" data-i18n="featureRoastTitle">Власне обсмаження</h3>
+            <p class="feature-card__text" data-i18n="featureRoastText">Контролюємо кожен етап обсмаження для ідеального смаку.</p>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 14c0-4 3-6 6-6s6 2 6 6c0 8-6 14-6 14s-6-6-6-14z" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 30c2 4 5 6 8 6s6-2 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title" data-i18n="featureBeansTitle">Зерна Specialty</h3>
+            <p class="feature-card__text" data-i18n="featureBeansText">Лише найкращі зерна з унікальним смаковим профілем.</p>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 34V22a6 6 0 0 1 6-6h4" stroke="currentColor" stroke-width="2"/>
+                <path d="M28 16h6a4 4 0 0 1 4 4v14" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 34h28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M34 12v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title" data-i18n="featureAtmoTitle">Затишна атмосфера</h3>
+            <p class="feature-card__text" data-i18n="featureAtmoText">Спокійний простір з м'яким світлом і теплим деревом.</p>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 30c0-8 4-14 10-14s10 6 10 14" stroke="currentColor" stroke-width="2"/>
+                <circle cx="24" cy="20" r="5" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 34h24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title" data-i18n="featureBreakfastTitle">Сніданки весь день</h3>
+            <p class="feature-card__text" data-i18n="featureBreakfastText">Улюблені страви доступні з ранку до закриття.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="menu section section--white" id="menu">
+      <div class="container menu__inner">
+        <h2 class="section-title section-title--left" data-i18n="menuTitle">Меню</h2>
+        <p class="section-subtitle section-subtitle--left" data-i18n="menuSubtitle">Напої та випічка зі свіжих інгредієнтів</p>
+
+        <div class="menu-tabs" role="tablist" aria-label="Категорії меню">
+          <button class="menu-tabs__btn is-active" type="button" role="tab" id="menu-tab-coffee" aria-selected="true" aria-controls="menu-panel" data-tab="coffee" data-i18n="menuTabCoffee">Кава</button>
+          <button class="menu-tabs__btn" type="button" role="tab" id="menu-tab-desserts" aria-selected="false" aria-controls="menu-panel" data-tab="desserts" data-i18n="menuTabDesserts">Десерти</button>
+        </div>
+
+        <div class="menu-grid" id="menu-panel" role="tabpanel" aria-labelledby="menu-tab-coffee">
+          <article class="menu-card" data-category="coffee">
+            <div class="menu-card__media">
+              <img src="img/menu/Coffe/Kapuchino.jpg" alt="" width="280" height="280" loading="lazy">
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__info">
+                <h3 class="menu-card__name" data-i18n="menuCappuccinoName">Капучино</h3>
+                <p class="menu-card__desc" data-i18n="menuCappuccinoDesc">Класичний капучино з молочною пінкою</p>
+              </div>
+              <span class="menu-card__price" data-i18n="menuCappuccinoPrice">110 грн</span>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="coffee">
+            <div class="menu-card__media">
+              <img src="img/menu/Coffe/Raph.jpg" alt="" width="280" height="280" loading="lazy">
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__info">
+                <h3 class="menu-card__name" data-i18n="menuRafName">Раф ванільний</h3>
+                <p class="menu-card__desc" data-i18n="menuRafDesc">Ніжний вершковий раф з ваніллю</p>
+              </div>
+              <span class="menu-card__price" data-i18n="menuRafPrice">145 грн</span>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="coffee">
+            <div class="menu-card__media">
+              <img src="img/menu/Coffe/Philtr%20coffe.jpg" alt="" width="280" height="280" loading="lazy">
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__info">
+                <h3 class="menu-card__name" data-i18n="menuFilterName">Фільтр-кава</h3>
+                <p class="menu-card__desc" data-i18n="menuFilterDesc">Single origin, свіжо змелена</p>
+              </div>
+              <span class="menu-card__price" data-i18n="menuFilterPrice">100 грн</span>
+            </div>
+          </article>
+
+          <article class="menu-card" data-category="coffee">
+            <div class="menu-card__media">
+              <img src="img/menu/Coffe/Espresso.jpg" alt="" width="280" height="280" loading="lazy">
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__info">
+                <h3 class="menu-card__name" data-i18n="menuEspressoName">Еспресо</h3>
+                <p class="menu-card__desc" data-i18n="menuEspressoDesc">Концентрований смак specialty-зерна</p>
+              </div>
+              <span class="menu-card__price" data-i18n="menuEspressoPrice">70 грн</span>
+            </div>
+          </article>
+
+          <article class="menu-card is-hidden" data-category="desserts" hidden>
+            <div class="menu-card__media">
+              <img src="img/menu/Deserts/Croissant.jpg" alt="" width="280" height="280" loading="lazy">
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__info">
+                <h3 class="menu-card__name" data-i18n="menuCroissantName">Круасан</h3>
+                <p class="menu-card__desc" data-i18n="menuCroissantDesc">Вершкова випічка щоденного випікання</p>
+              </div>
+              <span class="menu-card__price" data-i18n="menuCroissantPrice">95 грн</span>
+            </div>
+          </article>
+
+          <article class="menu-card is-hidden" data-category="desserts" hidden>
+            <div class="menu-card__media">
+              <img src="img/menu/Deserts/Cheesecake.jpg" alt="" width="280" height="280" loading="lazy">
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__info">
+                <h3 class="menu-card__name" data-i18n="menuCheesecakeName">Чізкейк</h3>
+                <p class="menu-card__desc" data-i18n="menuCheesecakeDesc">Класичний десерт із ягідним соусом</p>
+              </div>
+              <span class="menu-card__price" data-i18n="menuCheesecakePrice">165 грн</span>
+            </div>
+          </article>
+
+          <article class="menu-card is-hidden" data-category="desserts" hidden>
+            <div class="menu-card__media">
+              <img src="img/menu/Deserts/Avocado%20Toast.jpg" alt="" width="280" height="280" loading="lazy">
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__info">
+                <h3 class="menu-card__name" data-i18n="menuToastName">Авокадо-тост</h3>
+                <p class="menu-card__desc" data-i18n="menuToastDesc">Авокадо, яйце пашот, закваасений хліб</p>
+              </div>
+              <span class="menu-card__price" data-i18n="menuToastPrice">185 грн</span>
+            </div>
+          </article>
+
+          <article class="menu-card is-hidden" data-category="desserts" hidden>
+            <div class="menu-card__media">
+              <img src="img/menu/Deserts/Granola.jpg" alt="" width="280" height="280" loading="lazy">
+            </div>
+            <div class="menu-card__body">
+              <div class="menu-card__info">
+                <h3 class="menu-card__name" data-i18n="menuGranolaName">Гранола</h3>
+                <p class="menu-card__desc" data-i18n="menuGranolaDesc">Гранола з ягодами та йогуртом</p>
+              </div>
+              <span class="menu-card__price" data-i18n="menuGranolaPrice">135 грн</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery section" id="gallery">
+      <div class="container gallery__inner">
+        <h2 class="section-title" data-i18n="galleryTitle">Галерея</h2>
+        <p class="section-subtitle" data-i18n="gallerySubtitle">Інтер'єр, напої та моменти, які хочеться зберегти</p>
+
+        <div class="gallery-grid">
+          <button class="gallery-item gallery-item--tall" type="button" data-full="img/assets/gallery/01.webp">
+            <img src="img/assets/gallery/01.webp" alt="" width="400" height="500" loading="lazy" data-i18n-alt="galleryAlt1">
+          </button>
+          <button class="gallery-item" type="button" data-full="img/assets/gallery/02.webp">
+            <img src="img/assets/gallery/02.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt2">
+          </button>
+          <button class="gallery-item" type="button" data-full="img/assets/gallery/03.webp">
+            <img src="img/assets/gallery/03.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt3">
+          </button>
+          <button class="gallery-item" type="button" data-full="img/assets/gallery/04.webp">
+            <img src="img/assets/gallery/04.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt4">
+          </button>
+          <button class="gallery-item gallery-item--tall" type="button" data-full="img/assets/gallery/05.webp">
+            <img src="img/assets/gallery/05.webp" alt="" width="400" height="500" loading="lazy" data-i18n-alt="galleryAlt5">
+          </button>
+          <button class="gallery-item" type="button" data-full="img/assets/gallery/06.webp">
+            <img src="img/assets/gallery/06.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt6">
+          </button>
+          <button class="gallery-item gallery-item--wide" type="button" data-full="img/assets/gallery/07.webp">
+            <img src="img/assets/gallery/07.webp" alt="" width="800" height="400" loading="lazy" data-i18n-alt="galleryAlt7">
+          </button>
+          <button class="gallery-item" type="button" data-full="img/assets/gallery/08.webp">
+            <img src="img/assets/gallery/08.webp" alt="" width="400" height="320" loading="lazy" data-i18n-alt="galleryAlt8">
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews section section--white" id="reviews">
+      <div class="container reviews__inner">
+        <h2 class="section-title" data-i18n="reviewsTitle">Відгуки</h2>
+        <p class="section-subtitle" data-i18n="reviewsSubtitle">Що кажуть гості</p>
+
+        <div class="reviews-slider">
+          <button class="reviews-slider__arrow reviews-slider__arrow--prev" type="button" aria-label="Попередній відгук" data-i18n-aria="reviewsPrev">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+
+          <div class="reviews-slider__track">
+            <article class="review-card is-active">
+              <div class="review-card__stars" aria-label="5 з 5">★★★★★</div>
+              <blockquote class="review-card__text" data-i18n="review1Text">Найкращий капучино в місті! Затишна атмосфера і привітний персонал — сюди хочеться повертатися знову і знову.</blockquote>
+              <cite class="review-card__author" data-i18n="review1Author">Анна К.</cite>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 з 5">★★★★★</div>
+              <blockquote class="review-card__text" data-i18n="review2Text">Чудове місце для роботи з ноутбуком. Смачна кава, тиха музика і неймовірний чізкейк. Рекомендую!</blockquote>
+              <cite class="review-card__author" data-i18n="review2Author">Михаіл Д.</cite>
+            </article>
+            <article class="review-card">
+              <div class="review-card__stars" aria-label="5 з 5">★★★★★</div>
+              <blockquote class="review-card__text" data-i18n="review3Text">Завжди свіжа випічка та увага до деталей. Сніданки весь день — це те, чого мені не вистачало в районі.</blockquote>
+              <cite class="review-card__author" data-i18n="review3Author">Олена С.</cite>
+            </article>
+          </div>
+
+          <button class="reviews-slider__arrow reviews-slider__arrow--next" type="button" aria-label="Наступний відгук" data-i18n-aria="reviewsNext">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+
+        <div class="reviews-dots" role="tablist" aria-label="Відгуки">
+          <button class="reviews-dots__btn is-active" type="button" aria-selected="true" data-slide="0"></button>
+          <button class="reviews-dots__btn" type="button" aria-selected="false" data-slide="1"></button>
+          <button class="reviews-dots__btn" type="button" aria-selected="false" data-slide="2"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="container contact__inner">
+        <div class="contact__grid">
+          <div class="contact__info">
+            <h2 class="section-title section-title--left" data-i18n="contactTitle">Контакти</h2>
+
+            <dl class="contact-list">
+              <div class="contact-list__item">
+                <dt data-i18n="contactAddressLabel">Адреса</dt>
+                <dd>
+                  <svg class="contact-list__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+                  <span data-i18n="contactAddress">вул. Хрещатик, 12, Київ</span>
+                </dd>
+              </div>
+              <div class="contact-list__item">
+                <dt data-i18n="contactHoursLabel">Години роботи</dt>
+                <dd data-i18n="contactHours">Пн–Пт 8:00–22:00, Сб–Нд 9:00–23:00</dd>
+              </div>
+              <div class="contact-list__item">
+                <dt data-i18n="contactPhoneLabel">Телефон</dt>
+                <dd>
+                  <a href="tel:+380441234567" data-i18n="contactPhone">+380 (44) 123-45-67</a>
+                </dd>
+              </div>
+            </dl>
+
+            <div class="socials">
+              <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M22 3L2 11l7 2 2 7 11-17z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              </a>
+              <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg>
+              </a>
+              <a class="socials__link" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v8h4v-8h3l1-4h-4V9c0-.6.4-1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact__form-wrap">
+            <h3 class="contact__form-title" data-i18n="formTitle">Забронювати столик</h3>
+
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="contact-form__row">
+                <label class="field">
+                  <span class="field__label" data-i18n="formName">Ім'я</span>
+                  <input class="field__input" type="text" name="name" required autocomplete="name" data-i18n-placeholder="formName">
+                  <span class="field__error" data-error="name"></span>
+                </label>
+                <label class="field">
+                  <span class="field__label" data-i18n="formPhone">Телефон</span>
+                  <input class="field__input" type="tel" name="phone" required autocomplete="tel" data-i18n-placeholder="formPhone">
+                  <span class="field__error" data-error="phone"></span>
+                </label>
+              </div>
+              <label class="field">
+                <span class="field__label" data-i18n="formEmail">Email (необов'язково)</span>
+                <input class="field__input" type="email" name="email" autocomplete="email" data-i18n-placeholder="formEmail">
+                <span class="field__error" data-error="email"></span>
+              </label>
+              <label class="field">
+                <span class="field__label" data-i18n="formMessage">Повідомлення</span>
+                <textarea class="field__input field__input--area" name="message" rows="4" data-i18n-placeholder="formMessage"></textarea>
+              </label>
+              <button class="btn btn--primary btn--full" type="submit" data-i18n="formSubmit">Надіслати</button>
+            </form>
+
+            <p class="contact-form__success" id="form-success" hidden data-i18n="formSuccess">Дякуємо! Ми зв'яжемося з вами найближчим часом.</p>
+          </div>
+        </div>
+
+        <div class="contact-map" aria-label="Карта розташування">
+          <div class="contact-map__pin" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo" data-i18n="logoName">Зерно</span>
+        <span class="footer__divider" aria-hidden="true">|</span>
+        <span class="footer__logo-en">ZERNO</span>
+        <p class="footer__tagline" data-i18n="footerTagline">Крафтова кав'ярня</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Футер навігація">
+        <a href="#menu" data-i18n="navMenu">Меню</a>
+        <a href="#about" data-i18n="navAbout">Про нас</a>
+        <a href="#gallery" data-i18n="navGallery">Галерея</a>
+        <a href="#reviews" data-i18n="navReviews">Відгуки</a>
+        <a href="#contact" data-i18n="navContact">Контакти</a>
+      </nav>
+
+      <div class="footer__actions">
+        <div class="socials socials--footer">
+          <a class="socials__link" href="https://t.me/" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M22 3L2 11l7 2 2 7 11-17z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="socials__link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </a>
+          <a class="socials__link" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v8h4v-8h3l1-4h-4V9c0-.6.4-1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <a class="footer__top" href="#hero" data-i18n="footerTop">Нагору ↑</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom container">
+      <p class="footer__copy" data-i18n="footerCopyright">© 2026 Зерно. Всі права захищені.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" type="button" aria-label="Закрити">&times;</button>
+    <img class="lightbox__image" src="" alt="">
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
