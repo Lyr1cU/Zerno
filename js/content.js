@@ -1,18 +1,30 @@
 const cache = new Map();
 
-export async function loadJson(path) {
-  if (cache.has(path)) {
-    return cache.get(path);
+function getSiteRoot() {
+  const script = document.querySelector('script[type="module"][src]');
+
+  if (script?.src) {
+    return new URL("../", script.src);
   }
 
-  const response = await fetch(path);
+  return new URL("./", window.location.href);
+}
+
+export async function loadJson(path) {
+  const url = new URL(path, getSiteRoot()).href;
+
+  if (cache.has(url)) {
+    return cache.get(url);
+  }
+
+  const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error(`Failed to load ${path}: ${response.status}`);
+    throw new Error(`Failed to load ${url}: ${response.status}`);
   }
 
   const data = await response.json();
-  cache.set(path, data);
+  cache.set(url, data);
   return data;
 }
 
