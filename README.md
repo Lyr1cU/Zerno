@@ -1,74 +1,88 @@
-# Zerno — крафтова кав'ярня
+# Zerno — craft coffee shop
 
-Демо-сайт кав'ярні Zerno (статична вёрстка, UA/EN).
+A bilingual (UA/EN) one-page demo for a fictional specialty coffee shop. Built as a fast, static site with a client-friendly admin panel — no frameworks, no build step.
 
-## Локальный просмотр
+**Live demo:** [lyr1c1.github.io/Zerno](https://lyr1c1.github.io/Zerno/)  
+**Admin:** [lyr1c1.github.io/Zerno/admin](https://lyr1c1.github.io/Zerno/admin/)
 
-Сайт нельзя открывать как `file://` — ES-модули в `js/main.js` требуют HTTP-сервер (бургер-меню и форма тоже).
+## About the site
+
+Zerno is a portfolio-ready landing page for a cozy craft café. It focuses on atmosphere, menu, social proof, and a clear call to action — table booking via a contact form.
+
+**Sections:** Hero · About & features · Menu (tabs) · Gallery (lightbox) · Reviews (slider) · Contacts (form + Google Maps) · Footer
+
+**Highlights:**
+- Responsive layout (mobile-first, burger menu on small screens)
+- Ukrainian / English language switch
+- Scroll reveal animations (lightweight, GPU-friendly)
+- Content-driven sections loaded from JSON
+- [Decap CMS](https://decapcms.org/) admin for non-technical edits
+- Hosted free on GitHub Pages
+
+**Stack:** HTML · CSS · vanilla JavaScript (ES modules) · JSON content · Decap CMS · GitHub Actions
+
+## Project structure
+
+```
+index.html          # page markup
+css/                # styles (desktop, tablet, mobile, animations)
+js/
+  main.js           # bootstrap, i18n, form, nav
+  content.js        # JSON loader
+  render/           # menu, gallery, reviews, contacts
+  i18n/             # UI strings (nav, form, hero, about)
+content/            # editable content (menu, gallery, reviews, contacts)
+admin/              # Decap CMS (index.html + config.yml)
+img/                # images and uploads/
+```
+
+## Local preview
+
+Do not open the site as `file://` — ES modules and `fetch` require an HTTP server.
 
 ```bash
-# Python
 python -m http.server 8080
-
-# или Node.js
+# or
 npx serve .
 ```
 
-Откройте http://localhost:8080
+Open [http://localhost:8080](http://localhost:8080)
 
-## GitHub Pages
+## Deploy (GitHub Pages)
 
-1. Создайте репозиторий на GitHub (например `Zerno`).
-2. Привяжите remote и запушьте `main`:
+1. Push the `main` branch to GitHub.
+2. In the repo: **Settings → Pages → Build and deployment → Source** → **GitHub Actions**.
+3. The workflow in `.github/workflows/pages.yml` publishes the site on each push.
 
-   ```bash
-   git remote add origin https://github.com/<ваш-username>/Zerno.git
-   git push -u origin main
-   ```
+## Content admin (Decap CMS)
 
-3. В репозитории: **Settings → Pages → Build and deployment → Source** выберите **GitHub Actions** (если деплой упал с `Get Pages site failed` — это обязательный шаг).
-4. После push workflow опубликует сайт по адресу:
+Clients can edit **menu, gallery, reviews, and contacts** in the admin. Changes are saved to `content/*.json` in the repo; the live site updates after deploy (~1–2 min).
 
-   `https://lyr1c1.github.io/Zerno/`
+New images upload to `img/uploads/`.
 
-## Админка (Decap CMS)
+### Local editing (no GitHub login)
 
-Адрес: `https://lyr1c1.github.io/Zerno/admin/` (после деплоя).
-
-Редактируются `content/*.json`: меню, галерея, отзывы, контакты. Новые фото загружаются в `img/uploads/`.
-
-### Локально (без GitHub-входа)
-
-Два терминала:
+Run two terminals:
 
 ```bash
-# 1 — прокси для записи в репозиторий
 npx decap-server
-
-# 2 — сайт
 python -m http.server 8080
 ```
 
-Откройте http://localhost:8080/admin/ — вход не нужен (`local_backend: true` в `admin/config.yml`).
+Open [http://localhost:8080/admin/](http://localhost:8080/admin/) — `local_backend: true` in `admin/config.yml` skips auth locally.
 
-### Продакшн (вход через GitHub)
+### Production (GitHub login)
 
-1. **OAuth-прокси на Vercel** — импорт репозитория [ublabs/netlify-cms-oauth](https://github.com/ublabs/netlify-cms-oauth):
-   - [vercel.com/new](https://vercel.com/new) → Import Git Repository → `ublabs/netlify-cms-oauth` (или свой fork)
-   - Deploy → скопируйте URL, например `https://zerno-oauth.vercel.app`
+GitHub Pages needs a small OAuth proxy for Decap:
 
-2. **GitHub OAuth App** (Settings → Developer settings → OAuth Apps):
-   - Application name: `Zerno CMS`
+1. Deploy [ublabs/netlify-cms-oauth](https://github.com/ublabs/netlify-cms-oauth) to Vercel.
+2. Create a **GitHub OAuth App**:
    - Homepage URL: `https://lyr1c1.github.io/Zerno/`
-   - Authorization callback URL: `https://zerno-oauth.vercel.app/callback` (ваш URL + `/callback`)
+   - Callback URL: `https://<your-proxy>.vercel.app/callback`
+3. Set Vercel env vars: `OAUTH_GITHUB_CLIENT_ID`, `OAUTH_GITHUB_CLIENT_SECRET`, then **Redeploy**.
+4. Set `base_url` in `admin/config.yml` to your proxy URL (without `/callback`).
+5. The GitHub account used to log in needs **write** access to the repo.
 
-3. **Переменные в Vercel** (Project → Settings → Environment Variables):
-   - `OAUTH_GITHUB_CLIENT_ID` — Client ID
-   - `OAUTH_GITHUB_CLIENT_SECRET` — Client Secret
-   - Redeploy после добавления переменных
+## Part of a site pipeline
 
-4. В `admin/config.yml` замените `base_url` на URL прокси (без `/callback`).
-
-5. У GitHub-аккаунта, которым входите в админку, должен быть **write** доступ к репозиторию `Lyr1cU/Zerno`.
-
-После **Publish** в админке изменения попадают в `main` → GitHub Actions обновляет сайт (1–2 мин).
+This repository is one output of a **repeatable site pipeline**: a fixed template (layout, components, CMS wiring, deploy) that gets customized per client — brand, copy, photos, and contact details. The goal is to ship similar one-page business sites quickly, with a professional look and an admin panel the client can actually use, without rebuilding from scratch each time.
