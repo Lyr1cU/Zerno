@@ -7,12 +7,12 @@ backend:
   name: github
   repo: Lyr1cU/Zerno
   branch: main
-  base_url: https://netlify-cms-oauth-rust.vercel.app
+  base_url: https://auth.zernocafe.pp.ua
   auth_endpoint: auth
 
-site_url: https://lyr1c1.github.io/Zerno
-display_url: https://lyr1c1.github.io/Zerno
-# logo_url: після деплою можна вказати https://lyr1c1.github.io/Zerno/img/assets/logo.webp
+site_url: https://zernocafe.pp.ua
+display_url: https://zernocafe.pp.ua
+# logo_url: https://zernocafe.pp.ua/img/assets/logo.webp
 
 media_folder: img/uploads
 public_folder: img/uploads
