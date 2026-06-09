@@ -1,28 +1,14 @@
 {
-  "title_uk": "Контакти",
-  "title_en": "Contact",
-  "addressLabel_uk": "Адреса",
-  "addressLabel_en": "Address",
   "address_uk": "вул. Хрещатик, 12, Київ",
-  "address_en": "12 Khreshchatyk St, Kyiv",
-  "hoursLabel_uk": "Години роботи",
-  "hoursLabel_en": "Opening hours",
-  "hours_uk": "Пн–Пт 8:00–22:00, Сб–Нд 9:00–23:00",
-  "hours_en": "Mon–Fri 8:00–22:00, Sat–Sun 9:00–23:00",
-  "phoneLabel_uk": "Телефон",
-  "phoneLabel_en": "Phone",
   "phoneDisplay_uk": "+380 (44) 123-45-67",
-  "phoneDisplay_en": "+380 (44) 123-45-67",
-  "phone": "+380441234567",
-  "mapLabel_uk": "Карта розташування",
-  "mapLabel_en": "Location map",
+  "phoneLabel_en": "Phone",
+  "hoursLabel_en": "Opening hours",
   "mapLat": 50.4476,
-  "mapLng": 30.5242,
-  "mapZoom": 16,
+  "hours_uk": "Пн–Пт 8:00–22:00, Сб–Нд 9:00–23:00",
   "socials": [
     {
       "id": "telegram",
-      "url": "https://t.me/",
+      "url": "https://t.me/Lyr1c_U",
       "label": "Telegram"
     },
     {
@@ -35,5 +21,19 @@
       "url": "https://facebook.com/",
       "label": "Facebook"
     }
-  ]
+  ],
+  "addressLabel_en": "Address",
+  "mapLng": 30.5242,
+  "phone": "+380441234567",
+  "mapZoom": 16,
+  "phoneLabel_uk": "Телефон",
+  "mapLabel_en": "Location map",
+  "title_en": "Contact",
+  "hoursLabel_uk": "Години роботи",
+  "address_en": "12 Khreshchatyk St, Kyiv",
+  "phoneDisplay_en": "+380 (44) 123-45-67",
+  "addressLabel_uk": "Адреса",
+  "hours_en": "Mon–Fri 8:00–22:00, Sat–Sun 9:00–23:00",
+  "mapLabel_uk": "Карта розташування",
+  "title_uk": "Контакти"
 }
