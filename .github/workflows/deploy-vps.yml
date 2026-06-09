@@ -30,9 +30,11 @@
 #
 # =============================================================================
 
-name: Deploy to VPS (manual — client handoff)
+name: Deploy to VPS
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
@@ -44,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production-vps
-      url: https://example.com
+      url: https://zernocafe.pp.ua
 
     steps:
       - name: Checkout
@@ -70,13 +72,5 @@ jobs:
       - name: Done
         run: echo "Deployed to ${{ secrets.VPS_HOST }}:${{ secrets.VPS_PATH }}"
 
-# -----------------------------------------------------------------------------
-# Production variant (uncomment when handing off to a client):
-#
-# on:
-#   push:
-#     branches: [main]
-#   workflow_dispatch:
-#
-# Then every Decap Publish (push to main) auto-deploys to VPS.
-# -----------------------------------------------------------------------------
+# Every push to main (including Decap Publish) auto-deploys to VPS.
+# For demo-only repos, use workflow_dispatch only and keep pages.yml.
