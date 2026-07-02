@@ -71,6 +71,24 @@
     display: none;
   }
 
+  /* Header chrome must stack above the fixed nav drawer (z-index 110),
+     otherwise burger/logo/lang-switch get covered when the menu is open */
+  .header {
+    z-index: 120;
+  }
+
+  .header__inner {
+    position: relative;
+    z-index: 115;
+  }
+
+  .burger,
+  .logo,
+  .header__actions {
+    position: relative;
+    z-index: 111;
+  }
+
   .nav {
     position: fixed;
     top: var(--header-height);
@@ -166,8 +184,10 @@
     pointer-events: auto;
   }
 
+  /* Scroll lock is done in JS via position: fixed on body (see setNavOpen);
+     overflow: hidden here would break position: sticky on iOS */
   body.is-nav-open {
-    overflow: hidden;
+    touch-action: none;
   }
 
   /* Hero

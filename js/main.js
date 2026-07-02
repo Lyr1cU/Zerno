@@ -15,6 +15,7 @@ const siteNav = document.getElementById("site-nav");
 const navOverlay = document.getElementById("nav-overlay");
 const navPanelLinks = document.querySelectorAll(".nav__link, .nav__cta");
 
+let navScrollLockY = 0;
 let currentLang = DEFAULT_LANG;
 
 function getNavAriaLabel(isOpen) {
@@ -125,6 +126,25 @@ function setNavOpen(isOpen) {
   if (navOverlay) {
     navOverlay.hidden = !isOpen;
   }
+
+  // Scroll lock via position: fixed (body overflow: hidden breaks sticky header on iOS).
+  // behavior: "instant" is required because of scroll-behavior: smooth on html.
+  if (isOpen) {
+    navScrollLockY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${navScrollLockY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    return;
+  }
+
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
+  window.scrollTo({ top: navScrollLockY, behavior: "instant" });
 }
 
 burger?.addEventListener("click", () => {
