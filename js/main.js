@@ -112,6 +112,9 @@ setLanguage(initialLang);
    -------------------------------------------------------------------------- */
 
 function setNavOpen(isOpen) {
+  const wasOpen = burger?.classList.contains("is-active") ?? false;
+  if (isOpen === wasOpen) return;
+
   burger?.classList.toggle("is-active", isOpen);
   siteNav?.classList.toggle("is-open", isOpen);
   navOverlay?.classList.toggle("is-visible", isOpen);
